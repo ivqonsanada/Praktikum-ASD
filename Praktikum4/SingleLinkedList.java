@@ -135,38 +135,3 @@ public class SingleLinkedList {
     }
 
 }
-//        Node newNode = head;
-//        Node temp = new Node();
-//        temp.data = data;
-//
-//        if (head == null) {
-//            head = tail = temp;
-//        } else if (temp.data.getHargaSewa() < head.data.getHargaSewa()) {
-//            while (newNode.next != null) {
-//                System.out.println(temp.data.judul + temp.data.getHargaSewa());
-//                System.out.println(newNode.data.judul + newNode.data.getHargaSewa());
-//                if (temp.data.getHargaSewa() == newNode.data.getHargaSewa()) {
-//                    System.out.println(temp.data.judul);
-//                    while (newNode.next != null) {
-//                        if (temp.data.getHargaDenda() < newNode.data.getHargaDenda()) {
-//                            newNode = newNode.next;
-//                        } else {
-//                            break;
-//                        }
-//                    }
-//                    break;
-//                } else if (temp.data.getHargaSewa() < newNode.data.getHargaSewa()) {
-//                    System.out.println("bener dak sih");
-//                    newNode = newNode.next;
-//                } else {
-//                    System.out.println("juasik");
-//                    break;
-//                }
-//            }
-//            temp.next = newNode.next;
-//            newNode.next = temp;
-//        }
-//        else {
-//            temp.next = head;
-//            head = temp;
-//        }
