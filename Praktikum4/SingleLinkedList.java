@@ -67,42 +67,51 @@ public class SingleLinkedList {
     }
 
     public void sisipDataUrut(Buku data) {
-        Node newNode = head;
         Node temp = new Node();
         temp.data = data;
-
         if (head == null) {
-            head = tail = temp;
-        } else if (temp.data.getHargaSewa() < head.data.getHargaSewa()) {
-            while (newNode.next != null) {
-                System.out.println(temp.data.judul + temp.data.getHargaSewa());
-                System.out.println(newNode.data.judul + newNode.data.getHargaSewa());
-                if (temp.data.getHargaSewa() == newNode.data.getHargaSewa()) {
-                    System.out.println(temp.data.judul);
-                    while (newNode.next != null) {
-                        if (temp.data.getHargaDenda() < newNode.data.getHargaDenda()) {
-                            newNode = newNode.next;
-                        } else {
-                            break;
-                        }
-                    }
-                    break;
-                } else if (temp.data.getHargaSewa() < newNode.data.getHargaSewa()) {
-                    System.out.println("bener dak sih");
-                    newNode = newNode.next;
-                } else {
-                    System.out.println("juasik");
-                    break;
-                }
-            }
-            temp.next = newNode.next;
-            newNode.next = temp;
-        }
-        else {
-            temp.next = head;
             head = temp;
+        } else {
+            Node a = head;
+            temp = null;
+            while (a != null && a.data.getHargaSewa() < data.getHargaSewa()) {
+                temp = a;
+                a = a.next;
+            }
+            while (a != null && a.data.getHargaDenda() < data.getHargaDenda() && a.data.getHargaSewa() == data.getHargaSewa()) {
+                temp = a;
+                a = a.next;
+            }
+            if (temp != null) {
+                Node baru = new Node();
+                baru.data = data;
+                baru.next = a;
+                temp.next = baru;
+            } else {
+                sisipDidepan(data);
+            }
         }
     }
+// public void sisipDataUrut(Mahasiswa dt) {
+//        if (pointer == null) {
+//            buatNode(dt);
+//        } else {
+//            Node a = pointer;
+//            Node temp = null;
+//            while(a != null && a.data.getIpk() >= dt.getIpk()){
+//                temp = a;
+//                a = a.next;
+//            }
+//            if (temp != null) {
+//                Node baru = new Node();
+//                baru.data = dt;
+//                baru.next = a;
+//                temp.next = baru;
+//            } else {
+//                buatNode(dt);
+//            }
+//        }
+//    }
 
     public void hapusData(Buku key) {
         Node temp = head;
@@ -146,3 +155,38 @@ public class SingleLinkedList {
     }
 
 }
+//        Node newNode = head;
+//        Node temp = new Node();
+//        temp.data = data;
+//
+//        if (head == null) {
+//            head = tail = temp;
+//        } else if (temp.data.getHargaSewa() < head.data.getHargaSewa()) {
+//            while (newNode.next != null) {
+//                System.out.println(temp.data.judul + temp.data.getHargaSewa());
+//                System.out.println(newNode.data.judul + newNode.data.getHargaSewa());
+//                if (temp.data.getHargaSewa() == newNode.data.getHargaSewa()) {
+//                    System.out.println(temp.data.judul);
+//                    while (newNode.next != null) {
+//                        if (temp.data.getHargaDenda() < newNode.data.getHargaDenda()) {
+//                            newNode = newNode.next;
+//                        } else {
+//                            break;
+//                        }
+//                    }
+//                    break;
+//                } else if (temp.data.getHargaSewa() < newNode.data.getHargaSewa()) {
+//                    System.out.println("bener dak sih");
+//                    newNode = newNode.next;
+//                } else {
+//                    System.out.println("juasik");
+//                    break;
+//                }
+//            }
+//            temp.next = newNode.next;
+//            newNode.next = temp;
+//        }
+//        else {
+//            temp.next = head;
+//            head = temp;
+//        }
