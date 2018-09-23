@@ -92,26 +92,6 @@ public class SingleLinkedList {
             }
         }
     }
-// public void sisipDataUrut(Mahasiswa dt) {
-//        if (pointer == null) {
-//            buatNode(dt);
-//        } else {
-//            Node a = pointer;
-//            Node temp = null;
-//            while(a != null && a.data.getIpk() >= dt.getIpk()){
-//                temp = a;
-//                a = a.next;
-//            }
-//            if (temp != null) {
-//                Node baru = new Node();
-//                baru.data = dt;
-//                baru.next = a;
-//                temp.next = baru;
-//            } else {
-//                buatNode(dt);
-//            }
-//        }
-//    }
 
     public void hapusData(Buku key) {
         Node temp = head;
