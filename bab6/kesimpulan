@@ -1,0 +1,5 @@
+Circular Single Linked List adalah suatu linked list yang head dan tailnya terhubung satu sama lain. Berbeda dengan Circular Single Linked List, Single Linked List hanya satu arah dan tailnya langsung menunjuk ke daerah null.  
+
+Circular Double Linked List adalah suatu linked list yang head dan tailnya terhubung satu sama lain dan juga menunjuk satu sama lain. Berbeda dengan Circular Double Linked List, Double Linked List memanglah dua arah. Namun, tail dan head langsung menunjuk ke daerah null.
+
+Implementasi CLL dikehidupan sehari-hari adalah penggunaan media player seperti VLC dan juga music player. disana kita bisa mengulang videonya sendiri ataupun mengulang playlist yang ada. Disisi lain kita juga bisa melakukan "previous" kepada file yang kita inginkan. Selain itu linked list digunakan juga dalam algoritme sistem operasi yang sederhana ada stack and queue.
