@@ -28,9 +28,9 @@ public class MainClass {
         System.out.println("Hasil penelusuran BFS mulai node 0: ");
         graph.BreadthFirstSearch(0);
         System.out.println("Hasil penelusuran Tetangga");
-        graph.tetangga(2);;
+        graph.tetangga(2);
         System.out.println("Hasil penelusuran DFS mulai node 0: ");
         graph.DFS(0);
-        
+        graph.floydWarshall();
     }
 }

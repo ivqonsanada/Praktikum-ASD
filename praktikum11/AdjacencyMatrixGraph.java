@@ -7,32 +7,32 @@ import java.util.List;
 public class AdjacencyMatrixGraph {
 
     private int size;
-    private boolean[][] adj;
-    private int weight;
+    private int[][] adj;
+    private int[] weight;
+    private int count = 0;
+    final static int INF = 99999;
 
     AdjacencyMatrixGraph(int size) {
         this.size = size;
-        this.adj = new boolean[size][size];
+        this.adj = new int[size][size];
     }
 
     void addEdge(int i, int j, int weight) {
-        this.adj[i][j] = true;
-        this.weight = weight;
+        this.adj[i][j] = weight;
     }
 
     void removeEdge(int i, int j) {
-        this.adj[i][j] = false;
-        this.weight = 0;
+        this.adj[i][j] = 0;
     }
 
-    boolean hasEdge(int i, int j) {
+    int hasEdge(int i, int j) {
         return this.adj[i][j];
     }
-    
+
     List<Integer> outEdges(int i) {
         List<Integer> edges = new ArrayList<Integer>();
         for (int j = 0; j < size; j++) {
-            if (this.adj[i][j]) {
+            if (this.adj[i][j] != 0) {
                 edges.add(j);
             }
         }
@@ -42,7 +42,7 @@ public class AdjacencyMatrixGraph {
     List<Integer> inEdges(int i) {
         List<Integer> edges = new ArrayList<Integer>();
         for (int j = 0; j < size; j++) {
-            if (this.adj[j][i]) {
+            if (this.adj[j][i] != 0) {
                 edges.add(j);
             }
         }
@@ -95,10 +95,53 @@ public class AdjacencyMatrixGraph {
         boolean[] terkunjungi = new boolean[size];
         DepthFirstSearch(nodeAwal, terkunjungi);
     }
-    
-    public String jalur(int nodeAwal, int nodeTujuan){
-        return "";
+
+    void floydWarshall() {
+        int dist[][] = new int[size][size];
+        int i, j, k;
+
+        for (i = 0; i < size; i++) {
+            for (j = 0; j < size; j++) {
+                if (i == j) {
+                    dist[i][j] = 0;
+                } else {
+                    dist[i][j] = INF;
+                }
+            }
+        }
+
+        for (i = 0; i < size; i++) {
+            for (j = 0; j < size; j++) {
+                if (adj[i][j] != 0) {
+                    dist[i][j] = adj[i][j];
+                }
+            }
+        }
+
+        for (k = 0; k < size; k++) {
+            for (i = 0; i < size; i++) {
+                for (j = 0; j < size; j++) {
+                    if (dist[i][k] + dist[k][j] < dist[i][j]) {
+                        dist[i][j] = dist[i][k] + dist[k][j];
+                    }
+                }
+            }
+        }
+        printSolution(dist);
     }
-    public void beban(){
+
+    void printSolution(int dist[][]) {
+        System.out.println("The following matrix shows the shortest "
+                + "distances between every pair of vertices");
+        for (int i = 0; i < size; ++i) {
+            for (int j = 0; j < size; ++j) {
+                if (dist[i][j] == INF) {
+                    System.out.print("INF ");
+                } else {
+                    System.out.print(dist[i][j] + "   ");
+                }
+            }
+            System.out.println();
+        }
     }
 }
