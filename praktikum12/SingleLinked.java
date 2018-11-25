@@ -1,14 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package praktikum12;
 
-/**
- *
- * @author rockwell
- */
 public class SingleLinked {
 
     Node pAwal;
@@ -113,31 +104,22 @@ public class SingleLinked {
     }
 
     public void insertionSort(Node headref) {
-        // Initialize sorted linked list 
         sorted = null;
         Node current = headref;
-        // Traverse the given linked list and insert every 
-        // node to sorted 
         while (current != null) {
-            // Store next for next iteration 
             Node next = current.next;
-            // insert current in sorted linked list 
             sortedInsert(current);
-            // Update current 
             current = next;
         }
-        // Update head_ref to point to sorted linked list 
         pAwal = sorted;
     }
 
     public void sortedInsert(Node newnode) {
-        /* Special case for the head end */
         if (sorted == null || sorted.data >= newnode.data) {
             newnode.next = sorted;
             sorted = newnode;
         } else {
             Node current = sorted;
-            /* Locate the node before the point of insertion */
             while (current.next != null && current.next.data < newnode.data) {
                 current = current.next;
             }
