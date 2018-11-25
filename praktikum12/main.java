@@ -10,7 +10,9 @@ public class main {
         bubble.SisipDataDiAwal(2);
         bubble.SisipDataDiAwal(10);
         bubble.SisipDataDiAwal(10);
+        long mulaiBubble = System.nanoTime();
         bubble.bubblesort();
+        long selesaiBubble = System.nanoTime();
         bubble.cetak();
 
         SingleLinked merge = new SingleLinked();
@@ -20,7 +22,9 @@ public class main {
         merge.SisipDataDiAwal(27);
         merge.SisipDataDiAwal(76);
         merge.SisipDataDiAwal(21);
+        long mulaiMerge = System.nanoTime();
         merge.pAwal = merge.mSort();
+        long selesaiMerge = System.nanoTime();
         merge.cetak();
 
         SingleLinked insert = new SingleLinked();
@@ -30,7 +34,9 @@ public class main {
         insert.SisipDataDiAwal(27);
         insert.SisipDataDiAwal(76);
         insert.SisipDataDiAwal(21);
+        long mulaiInsert = System.nanoTime();
         insert.insertionSort(insert.pAwal);
+        long selesaiInsert = System.nanoTime();
         insert.cetak();
 
         SingleLinked quick = new SingleLinked();
@@ -40,7 +46,16 @@ public class main {
         quick.SisipDataDiAwal(27);
         quick.SisipDataDiAwal(76);
         quick.SisipDataDiAwal(21);
+        long mulaiQuick = System.nanoTime();
         quick.quickSort(quick.pAwal);
+        long selesaiQuick = System.nanoTime();
         quick.cetak();
+        
+        System.out.println("Waktu yang dibutuhkan:");
+        System.out.println("BubbleSort " + (selesaiBubble - mulaiBubble));
+        System.out.println("MergeSort " + (selesaiMerge - mulaiMerge));
+        System.out.println("InsertSort " + (selesaiInsert - mulaiInsert));
+        System.out.println("QuickSort " + (selesaiQuick - mulaiQuick));
+        
     }
 }
