@@ -1,5 +1,7 @@
-package praktikum7;
+package Praktikum7;
+
 public class main {
+
     public static void main(String[] args) {
         Stack st = new Stack();
         st.push(0);
@@ -15,8 +17,10 @@ public class main {
         String pre = st.infixToPrefix("2+3*4+5/(3+7)");
         System.out.println(pre);
         int inpos = st.countIn2Post(pos);
-        System.out.println("================");
         System.out.println(inpos);
+        System.out.println("================");
+        
+        
         //implementasi Stack
         Stack std = new Stack();
         st.push(new Double(5));
@@ -29,9 +33,11 @@ public class main {
         stBuku.push(new Buku("Java"));
         stBuku.push(new Buku("Algoritma dan STD"));
         stBuku.push(new Buku("C++"));
-        System.out.println(stBuku.peek());
+        Buku hm = (Buku) stBuku.peek();
+        System.out.println(hm.getJudul());
         while (!stBuku.isEmpty()) {
-            System.out.println(stBuku.pop());
+            Buku test = (Buku) stBuku.pop();
+            System.out.println(test.getJudul());
         }
     }
 }
