@@ -1,13 +1,15 @@
-package praktikum7;
+package Praktikum7;
+
 public class Buku {
+
+    private String Judul;
+
     public Buku(String Judul) {
         this.Judul = Judul;
     }
-    private String Judul;
+
     public String getJudul() {
         return Judul;
     }
-    public void setJudul(String Judul) {
-        this.Judul = Judul;
-    }
+
 }
