@@ -1,10 +1,7 @@
-package ADT_Larik;
-
+package BAB_2;
 public class Larik {
-
     private int size;
     private double[] itemDt;
-
     public Larik(double[] A) {
         this.size = A.length;
         this.itemDt = new double[this.size];
@@ -12,15 +9,12 @@ public class Larik {
             this.itemDt[i] = A[i];
         }
     }
-
     public int getSize() {
         return this.size;
     }
-
     public double getItem(int i) {
         return this.itemDt[i];
     }
-
     public static Larik sambung(Larik l1, Larik l2) {
         double[] a = new double[l1.size + l2.size];
         Larik l3 = new Larik(a);
@@ -33,11 +27,9 @@ public class Larik {
         }
         return l3;
     }
-
     public void isiItem(int id, double dt) {
         this.itemDt[id] = dt;
     }
-
     public void cetak(String komentar) {
         System.out.println(komentar);
         for (int i = 0; i < this.size; i++) {
@@ -45,7 +37,6 @@ public class Larik {
         }
         System.out.println();
     }
-
     public double findBesar() {
         double besar = this.itemDt[0];
         for (int i = 1; i < this.size; i++) {
@@ -55,7 +46,6 @@ public class Larik {
         }
         return besar;
     }
-
     public int getPosisi(double dtCari) {
         int pos = -99;
         boolean ketemu = false;
@@ -69,9 +59,7 @@ public class Larik {
         }
         return pos;
     }
-
     public static Larik copyLarik(int k, int n, Larik l) {
-        // lenkapi bagian ini
         double[] a = new double[n];
         Larik l2 = new Larik(a);
         for (int i = 0; i < n; i++) {
@@ -79,7 +67,6 @@ public class Larik {
         }
         return l2;
     }
-
     public int getPosBesar(int awal, int akhir) {
         int posBesar = -1;
         double itemBesar;
@@ -96,7 +83,6 @@ public class Larik {
         }
         return posBesar;
     }
-
     public int getPosKecil(int awal, int akhir) {
         int posKecil = -1;
         double itemKecil;
@@ -113,40 +99,6 @@ public class Larik {
         }
         return posKecil;
     }
-
-    public static Larik SelectionSort(Larik lAsal, int status) {
-
-        int n = lAsal.getSize();
-        Larik lhasil = Larik.copyLarik(0, n, lAsal);
-        if (status == 0) {
-
-            for (int i = 0; i < n; i++) {
-                int posKecil = lhasil.getPosKecil(i,
-                        n);
-
-                double itemKecil
-                        = lhasil.getItem(posKecil);
-
-                double itemI = lhasil.getItem(i);
-                lhasil.isiItem(i, itemKecil);
-                lhasil.isiItem(posKecil, itemI);
-            }
-        } else {
-            for (int i = 0; i < n; i++) {
-                int posBesar = lhasil.getPosBesar(i,
-                        n);
-
-                double itemBesar
-                        = lhasil.getItem(posBesar);
-
-                double itemI = lhasil.getItem(i);
-                lhasil.isiItem(i, itemBesar);
-                lhasil.isiItem(posBesar, itemI);
-            }
-        }
-        return lhasil;
-    }
-
     public static double LarikKaliLarik(Larik l1, Larik l2) {
         double hasilKali = 0;
         if (l1.size == l2.size) {
@@ -156,5 +108,29 @@ public class Larik {
         }
         return hasilKali;
     }
-
+    public void findPosKelipatan(int kelipatan, int awal, int akhir) {
+        System.out.println("Posisi Kelipatan " +kelipatan+" pada range "+awal+"-"+akhir);
+        for (; awal <= akhir; awal++) {
+            if (itemDt[awal] % kelipatan == 0) {
+                System.out.println(awal);
+            }
+        }
+    }
+    public static Larik BubbleSort(Larik L1) {
+        int n = L1.getSize();
+        Larik Bsort = Larik.copyLarik(0, n, L1);
+        boolean swapped = true;
+        do {
+            swapped = false;
+            for (int i = 0; i < Bsort.size - 1; i++) {
+                if (Bsort.itemDt[i] > Bsort.itemDt[i + 1]) {
+                    double temp = Bsort.itemDt[i];
+                    Bsort.itemDt[i] = Bsort.itemDt[i + 1];
+                    Bsort.itemDt[i + 1] = temp;
+                    swapped = true;
+                }
+            }
+        } while (swapped);
+        return Bsort;
+    }
 }

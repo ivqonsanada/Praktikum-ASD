@@ -1,16 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package Praktikum4;
-
-/**
- *
- * @author rockwell
- */
+package BAB_4;
 public class main {
-
     public static void main(String[] args) {
         Buku buku1 = new Buku("Komputer", "Pemrograman Java", 2000, 3000);
         Buku buku2 = new Buku("Pendidikan", "Matematika SMA", 2500, 2500);

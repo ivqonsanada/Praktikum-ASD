@@ -1,4 +1,4 @@
-package ADT_Larik;
+package BAB_3;
 public class main {
     public static void main(String[] args) {
         Matrik A, B, C;
